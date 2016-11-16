@@ -1,0 +1,6 @@
+a=fw.img
+b=rednand/fw.img
+x=wiiu/apps/ftpiiu/ftpiiu.elf
+y=wiiu/apps/loadiine_gx2/loadiine_gx2.elf
+down=wiiu/apps/snes9x2010_libretro/snes9x2010_libretro.elf
+default=wiiu/apps/homebrew_launcher/homebrew_launcher.elf
