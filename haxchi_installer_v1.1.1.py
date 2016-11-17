@@ -6,12 +6,12 @@ import os.path
 
 """ WELCOME """
 print"******************************"
-print"*    Haxchi Installer 1.1    *"
+print"*   Haxchi Installer 1.1.1   *"
 print"******************************\n"
 print"******************************"
 print"*    (FIX94  Haxchi v1.7)    *"
 print"*                            *"
-print"*       16-nov-2016          *"
+print"*       17-nov-2016          *"
 print"*                            *"
 print"*   Script by Vickdu31       *"
 print"* email : vickdu31@yahoo.fr  *"
@@ -34,7 +34,7 @@ os.system('cls' if os.name == 'nt' else 'clear')
 
 """ ASK REGION """
 print"******************************"
-print"*    Haxchi Installer 1.1    *"
+print"*    Haxchi Installer 1.1.1  *"
 print"******************************\n"
 for retry in range(5):
     creg = raw_input("What is your console region ? (eur/us/jap)  ")
@@ -114,12 +114,14 @@ if game_number == '5':
         game_id = "10195600"      
 if game_number == '6':
     game_name = "New Super Mario Bros"
-    shutil.copy2('files/haxchi/newsmb.zip', 'rom.zip')
     if creg == 'eur':
+        shutil.copy2('files/haxchi/newsmb_eur.zip', 'rom.zip')
         game_id = "10195B00"
     if creg == 'us':
+        shutil.copy2('files/haxchi/newsmb.zip', 'rom.zip')
         game_id = "10195A00"
     if creg == 'jap':
+        shutil.copy2('files/haxchi/newsmb.zip', 'rom.zip')
         game_id = "10195900"      
 if game_number == '7':
     game_name = "Star Fox Command"
@@ -164,7 +166,7 @@ raw_input("Please check that you now have a rom.zip file and please press enter 
 """ ASK GAME LOCATION """
 os.system('cls' if os.name == 'nt' else 'clear') 
 print"******************************"
-print"*    Haxchi Installer 1.1    *"
+print"*    Haxchi Installer 1.1.1  *"
 print"******************************\n"
 for retry in range(15):
     gloc = raw_input("Where is your game located ?\n  1) USB   2) NAND/REDNAND/INTERNAL MEMORY  ")
@@ -188,7 +190,7 @@ else:
 
 """ DEFINE LOGO """
 for retry in range(10):
-    hmode = raw_input("\nWhich icon do you want to use for " + game_name + " stored on  " + game_storage + " ?\n  1) Haxchi Icon   2) Hombrew Launcher\n   3) CFW Booter  4) Keep the current icon and name  ")
+    hmode = raw_input("\nWhich icon do you want to use for " + game_name + " stored on  " + game_storage + " ?\n  1) Haxchi Icon   2) Hombrew Launcher\n  3) CFW Booter    4) Keep the current icon  ")
     if (hmode == '1' or hmode == '2' or hmode == '3' or hmode == '4'):
         ansr = raw_input("Are you sure ? (y/n)  ")
         if (ansr == 'y' or ansr == 'Y' or ansr == 'yes'):
@@ -197,9 +199,47 @@ for retry in range(10):
 else:
     sys.exit(1)
 
+""" DEFINE CHANNEL NAME """    
+checkmeta = '0'
+if (hmode == '1'):
+    channel_name = "Haxchi"
+if (hmode == '2'):
+    channel_name = "Homebrew Launcher"
+if (hmode == '3'):
+    channel_name = "CFW Booter" 
+if (hmode == '1' or hmode == '2' or hmode == '3'):
+    for retry in range(10):
+        ansr = raw_input("The game name will be replaced with --> " + channel_name + " <-- Do you want to change that ? (y/n)  ")
+        if (ansr == 'y' or ansr == 'Y' or ansr == 'yes'):
+            channel_name = raw_input("Please enter the new channel name : ")   
+            ansr = raw_input("The game name will be replaced with --> " + channel_name + " <-- Are you sure ? (y/n)  ")
+            if (ansr == 'y' or ansr == 'Y' or ansr == 'yes'):
+                break 
+        if (ansr == 'n' or ansr == 'no' or ansr == 'N' or ansr == 'NO'):
+            break     
+    else:
+        sys.exit(1)
+if (hmode == '4'):
+    for retry in range(10):
+        checkmeta = raw_input("\nDo you want to edit game name ? (y/n)  ")
+        if (checkmeta == 'y' or checkmeta == 'Y' or checkmeta == 'yes' or checkmeta == 'N' or checkmeta == 'no' or checkmeta == 'n' or checkmeta == 'NO'):
+            if (checkmeta == 'y' or checkmeta == 'Y' or checkmeta == 'yes'):
+                channel_name = raw_input("Please enter the new channel name : ")  
+                ansr = raw_input("The game name will be replaced with --> " + channel_name + " <-- Are you sure ? (y/n)  ")
+                if (ansr == 'y' or ansr == 'Y' or ansr == 'yes'):
+                    checkmeta = '1'
+                    break 
+            if (checkmeta == 'no' or checkmeta == 'n' or checkmeta == 'N'):
+                ansr = raw_input("Are you sure you want to keep the current name ? (y/n)  ")
+                if (ansr == 'y' or ansr == 'Y' or ansr == 'yes'):
+                    break      
+    else:
+        sys.exit(1)
+
+
 """ DEFINE BOOTSOUND """
 for retry in range(10):
-    sound = raw_input("\n Do you want to use the nice Hombrew Channel Boot Sound (from Wii) ? (y/n)  ")
+    sound = raw_input("\nDo you want to use the Wii Hombrew Channel Boot Sound ? (y/n)  ")
     if (sound == 'y' or sound == 'YES' or sound == 'yes' or sound == 'Y' or sound == 'n' or sound == 'no' or sound == 'NO'):
         ansr = raw_input("Are you sure ? (y/n)  ")
         if (ansr == 'y' or ansr == 'Y' or ansr == 'yes'):
@@ -262,12 +302,12 @@ for retry in range(30):
     if (ansr == 'y' or ansr == 'Y' or ansr == 'yes' or ansr == 'YES'):
         break
     if (ansr == 'n' or ansr == 'N' or ansr == 'no' or ansr == 'NO'):
-        os.startfile('config.txt')
+        os.startfile('files\config.txt')
         raw_input("Please modify the file, SAVE IT and press enter continue")
-        raw_input("Are you sure your config file is OK and you saved it ? (y/n)  ")
+        ansr = raw_input("Are you sure your config file is OK and you saved it ? (y/n)  ")
         if (ansr == 'y' or ansr == 'Y' or ansr == 'yes'):
             break
-        break
+        break    
     print "Please answer by yes or no..."
 else:
     sys.exit(1)
@@ -279,7 +319,9 @@ print "\nWe will now try to connect to the your Wii U via Wupserver.\n\n Please 
 print "\nYour Wii U region is " + creg
 print "Your Wii U IP adress is " + ipcheck
 print "The game you are hacking is " + game_name + " (Game ID : " + game_id + ")"
-print "Your game is stored on " + game_storage + "\n"
+print "Your game is stored on " + game_storage
+if (hmode == '1' or hmode == '2' or hmode == '3' or checkmeta == '1'): 
+    print "You will replace the name --> " + game_name + " <-- by the name : --> " + channel_name + " <--\n"
 raw_input("Make sure this is correct, press enter when you are ready!")
 
 
@@ -294,9 +336,8 @@ os.system('cls' if os.name == 'nt' else 'clear')
 
 
 
-
 """ REPLACING META.XML """
-if (hmode == '1' or hmode == '2' or hmode == '3'):
+if (hmode == '1' or hmode == '2' or hmode == '3' or checkmeta == '1'):
     print "\n* Installing files, please wait.. (Takes a while if you change logo or Boot sound...) *\n"
     PATH8 = "/vol/storage_" + storage_code + "/usr/title/00050000/" + game_id + "/meta/meta.xml"
     wupclient.dl(PATH8)
@@ -304,12 +345,6 @@ if (hmode == '1' or hmode == '2' or hmode == '3'):
     from shutil import copyfile
     copyfile('meta.xml', 'meta.xml.bak')
     print "* meta.xml backup created ! *"
-    if (hmode == '1'):
-        channel_name = "Haxchi"
-    if (hmode == '2'):
-        channel_name = "Hombrew Launcher"
-    if (hmode == '3'):
-        channel_name = "CFW Booter" 
     import xml.etree.ElementTree as ET
     import codecs
     tree = ET.parse("meta.xml")
@@ -333,7 +368,7 @@ wupclient.up("rom.zip", PATH1)
 
 if sound == '1':
     PATH6 = "/vol/storage_" + storage_code + "/usr/title/00050000/" + game_id + "/meta/bootSound.btsnd"
-    wupclient.up("files/icon/hbl/bootSound.btsnd", PATH6)
+    wupclient.up("files/sound/bootSound.btsnd", PATH6)
 
 
 """ FLASHING ICONS """
@@ -367,7 +402,7 @@ print "\n* Success ! *\n"
 
 """ GOODBYE """  
 print"******************************"
-print"*    Haxchi Installer 1.1    *"
+print"*    Haxchi Installer 1.1.1  *"
 print"******************************\n"
 print"******************************"
 print"*  You now have Haxchi v1.7  *"
@@ -386,7 +421,7 @@ os.system('cls' if os.name == 'nt' else 'clear')
 
 """ CREDITS """ 
 print"******************************"
-print"*    Haxchi Installer 1.1    *"
+print"*    Haxchi Installer 1.1.1  *"
 print"******************************\n"        
 print "* Your game is now replaced by Haxchi ! *\n"
 print"**************************************"

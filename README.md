@@ -4,19 +4,11 @@ This is a python script to help users to install haxchi.
 Here is the main thread : http://gbatemp.net/threads/release-haxchi-installer-1-1-noob-friendly.448890/
 
 
-#Changelog :
-v1.1
-- Added support for Super Mario 64 DS
-- Added support for Yoshi Touch and Go
-- Updated hbl icon
-- Added new option to install the nice fix94 Haxchi icons
-- Fix a issue that sometimes doesnt change the TVboot image.
-- Added option to add the amazing Wii Hombrew Channel bootsound.
-- Added loadiine launch when pressing Y (in default config)
-- Now edit the meta.xml and show the correct name (Haxchi, Hombrew Launcher or CFW Booter) (Thanks a lot to @FIX94 for helping me here <3)
-
-v1.0
-- Initial release
+#Customisation :
+If you want to customise the files, you can :
+- If you want different bootsound that the wii Homebrew Channel, replace : /files/sound/bootSound.btsnd
+- If you want customs icons, use option 1 and replace files in : /files/icon/hax/...
+- You can now change the channel name the way you want
 
 #Included :
 - Haxchi v1.7 by FIX94
@@ -41,12 +33,14 @@ v1.0
 Go in the haxchi folder. Shift + Right click --> open CMD here :
 C:\Python27\python.exe haxchi_installer_v1.0.py
 Make sure you have python 2.7 installed
-2) I get connexion error :
+2) I get connexion error \ Program crash when installing files :
 - Make sure you don't have any VPN or modem restrictions running.
 - Make sure you entered the correct Wii U IP adress. If you don't know how to find it, the program will help you.
 3) Other problems
 - You can ask here if you have any other problem.
 - Go to check in data settings if your game is on USB or Internal Memory
+4) The icons are good but the NDS game (Brain Age) starts instead :
+This is because you have an old version of the NDS game that doesnt work, try deleting it and download it again from eShop.
 
 #Credits :
 FIX94, smea, plutoo, yellows8, naehrwert, derrek, dimok and vickdu31
