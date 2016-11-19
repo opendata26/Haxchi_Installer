@@ -15,7 +15,7 @@ print("*    (FIX94  Haxchi v1.7)    *")
 print("*                            *")
 print("*       17-nov-2016          *")
 print("*                            *")
-print("*   Script by Vickdu31       *")"
+print("*   Script by Vickdu31       *")
 print("*  modified by opendata      *")
 print("* email : vickdu31@yahoo.fr  *")
 print("******************************")
